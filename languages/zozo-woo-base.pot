@@ -1,0 +1,249 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Zozo Woo Base\n"
+"POT-Creation-Date: 2019-10-22 16:34+0530\n"
+"PO-Revision-Date: 2019-10-22 16:34+0530\n"
+"Last-Translator: \n"
+"Language-Team: zozothemes\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.3\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c;_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;"
+"esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;"
+"esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: inc/woo-minicart.php:48
+msgid "No items in cart"
+msgstr ""
+
+#: inc/woo-minicart.php:72 inc/woo-wishlist.php:260
+msgid "Product"
+msgstr ""
+
+#: inc/woo-minicart.php:84 inc/woo-wishlist.php:271
+msgid "Remove this item"
+msgstr ""
+
+#: inc/woo-minicart.php:97
+msgid "Cart"
+msgstr ""
+
+#: inc/woo-minicart.php:97
+msgid "View Cart"
+msgstr ""
+
+#: inc/woo-minicart.php:136 inc/woo-minicart.php:242 inc/woo-wishlist.php:99
+#: inc/woo-wishlist.php:152
+msgid "Busted"
+msgstr ""
+
+#: inc/woo-wishlist.php:129
+msgid "Add to Cart"
+msgstr ""
+
+#: inc/woo-wishlist.php:140 inc/woo-wishlist.php:229
+msgid "!No wishlist items exists."
+msgstr ""
+
+#: inc/woo-wishlist.php:282
+msgid "Wishlist"
+msgstr ""
+
+#: inc/woo-wishlist.php:282
+msgid "View Wishlist"
+msgstr ""
+
+#: index.php:101
+msgid "!Sorry. Variation not available."
+msgstr ""
+
+#: index.php:102
+msgid "!Sorry. Product not available."
+msgstr ""
+
+#: plugin-options/config.php:5 plugin-options/options.php:86
+msgid "General Settings"
+msgstr ""
+
+#: plugin-options/config.php:11
+msgid "Shop Page Title Option"
+msgstr ""
+
+#: plugin-options/config.php:12
+msgid "Enable/Disable woocommerce shop page title."
+msgstr ""
+
+#: plugin-options/config.php:14 plugin-options/config.php:64
+#: plugin-options/config.php:88
+msgid "Enable"
+msgstr ""
+
+#: plugin-options/config.php:15 plugin-options/config.php:65
+#: plugin-options/config.php:89
+msgid "Disable"
+msgstr ""
+
+#: plugin-options/config.php:20
+msgid "Number of Products Per Shop Page"
+msgstr ""
+
+#: plugin-options/config.php:21
+msgid "Enter products per page for shop page. Example 9"
+msgstr ""
+
+#: plugin-options/config.php:27
+msgid "Shop Page Product Columns"
+msgstr ""
+
+#: plugin-options/config.php:28
+msgid "You can choose shop page product columns."
+msgstr ""
+
+#: plugin-options/config.php:31 plugin-options/config.php:44
+msgid "2 Columns"
+msgstr ""
+
+#: plugin-options/config.php:32 plugin-options/config.php:45
+msgid "3 Columns"
+msgstr ""
+
+#: plugin-options/config.php:33 plugin-options/config.php:46
+msgid "4 Columns"
+msgstr ""
+
+#: plugin-options/config.php:34 plugin-options/config.php:47
+msgid "5 Columns"
+msgstr ""
+
+#: plugin-options/config.php:40
+msgid "Archive Page Product Columns"
+msgstr ""
+
+#: plugin-options/config.php:41
+msgid "You can choose archive page product columns."
+msgstr ""
+
+#: plugin-options/config.php:55
+msgid "Mini Cart Settings"
+msgstr ""
+
+#: plugin-options/config.php:61
+msgid "Sticky Mini Cart Option"
+msgstr ""
+
+#: plugin-options/config.php:62
+msgid "Enable/Disable sticky minicart for your site."
+msgstr ""
+
+#: plugin-options/config.php:72
+msgid "Wishlist Settings"
+msgstr ""
+
+#: plugin-options/config.php:78
+msgid "Wishlist Page"
+msgstr ""
+
+#: plugin-options/config.php:79
+msgid ""
+"Choose wishlist page for show wishlist table. You must place wishlist "
+"shortcode [zozo_user_wishlist] there."
+msgstr ""
+
+#: plugin-options/config.php:85
+msgid "Sticky Wishlist Option"
+msgstr ""
+
+#: plugin-options/config.php:86
+msgid "Enable/Disable sticky wishlist for your site."
+msgstr ""
+
+#: plugin-options/framework.php:33
+msgid "Settings"
+msgstr ""
+
+#: plugin-options/framework.php:93
+msgid "Image"
+msgstr ""
+
+#: plugin-options/framework.php:95
+msgid "Upload"
+msgstr ""
+
+#: plugin-options/framework.php:96
+msgid "Remove"
+msgstr ""
+
+#: plugin-options/inc/admin-page-content.php:5
+msgid "About"
+msgstr ""
+
+#: plugin-options/inc/admin-page-content.php:7
+msgid "Zozo Woo Addon v"
+msgstr ""
+
+#: plugin-options/inc/admin-page-content.php:26
+msgid "Support"
+msgstr ""
+
+#: plugin-options/options.php:65 plugin-options/options.php:66
+#: plugin-options/options.php:129
+msgid "Zozo Woo Addon"
+msgstr ""
+
+#: plugin-options/options.php:77 plugin-options/options.php:78
+msgid "Addon Features"
+msgstr ""
+
+#: plugin-options/options.php:94 plugin-options/options.php:110
+msgid "Feature Manager"
+msgstr ""
+
+#: plugin-options/options.php:96 plugin-options/options.php:131
+msgid ""
+"Thank you for using Zozo Woo Addon Plugin. User can find doctors, clinics "
+"&#38; other healthcare providers in any place. Search by specialties, "
+"localities and more. This plugin has been developed by"
+msgstr ""
+
+#: plugin-options/options.php:96 plugin-options/options.php:131
+msgid "zozothemes"
+msgstr ""
+
+#: plugin-options/options.php:157
+msgid "Update Options"
+msgstr ""
+
+#: woo-base.php:112
+msgid "Default"
+msgstr ""
+
+#: woo-base.php:113
+msgid "6 per page"
+msgstr ""
+
+#: woo-base.php:114
+msgid "12 per page"
+msgstr ""
+
+#: woo-base.php:115
+msgid "24 per page"
+msgstr ""
+
+#: woo-base.php:116
+msgid "36 per page"
+msgstr ""
+
+#: woo-base.php:117
+msgid "48 per page"
+msgstr ""
+
+#: woo-base.php:118
+msgid "64 per page"
+msgstr ""

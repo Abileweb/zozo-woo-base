@@ -1,0 +1,333 @@
+/*
+ * Zozo Woo Addon Admin Styles
+ */
+
+
+/* The switch - the box around the slider */
+.zwb-switch {
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.zwb-switch input {display:none;}
+
+/* The slider */
+.zwb-slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+.zwb-slider:before {
+	position: absolute;
+	content: "";
+	height: 26px;
+	width: 26px;
+	left: 4px;
+	bottom: 4px;
+	background-color: white;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+input:checked + .zwb-slider {
+	background-color: #2196F3;
+}
+
+input:focus + .zwb-slider {
+	box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .zwb-slider:before {
+	-webkit-transform: translateX(26px);
+	-ms-transform: translateX(26px);
+	transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.zwb-slider.round {
+	border-radius: 34px;
+}
+
+.zwb-slider.round:before {
+	border-radius: 50%;
+}
+
+/* Plugin Options Styles */
+
+/* Switch Button Styles */
+.zwb-admin-wrap .switch {
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	height: 34px;
+}
+.zwb-admin-wrap .switch input { 
+	opacity: 0;
+	width: 30px;
+	height: 20px;
+}
+.zwb-admin-wrap .switch .slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+.zwb-admin-wrap .switch .slider:before {
+	position: absolute;
+	content: "";
+	height: 26px;
+	width: 26px;
+	left: 4px;
+	bottom: 4px;
+	background-color: white;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+.zwb-admin-wrap .switch input:checked + .slider {	
+	background-color: #2196F3;
+}
+
+.zwb-admin-wrap .switch input:focus + .slider {
+	box-shadow: 0 0 1px #2196F3;
+}
+.zwb-admin-wrap .switch input:checked + .slider:before {
+	-webkit-transform: translateX(26px);
+	-ms-transform: translateX(26px);
+	transform: translateX(26px);
+}
+.zwb-admin-wrap .switch .slider.round {
+	border-radius: 34px;
+}
+.zwb-admin-wrap .switch .slider.round:before {
+	border-radius: 50%;
+}
+
+/* Tab Styles */
+.zwb-tab-list {
+    float: left;
+    border-right: 1px solid #ccc;
+    background-color: #f1f1f1;
+    width: 25%;
+    height: 600px;
+	padding-bottom: 50px;
+}
+ul.tablinks-list {
+    position: relative;
+    overflow: hidden;
+}
+.zwb-tab-list .tablinks {
+    display: block;
+    background-color: inherit;
+    color: black;
+    padding: 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px;
+    font-weight: bold;
+}
+.zwb-tab-list .tablinks:hover {
+    background-color: #ddd;
+}
+.zwb-tab-list .tablinks.active {
+    background-color: #ccc;
+}
+.zwb-tab .tabcontent {
+    float: left;
+    padding: 0px 12px;
+    width: 71%;
+    border-left: none;
+    height: 600px;
+	overflow-y: auto;
+    padding-bottom: 50px;
+}
+.zwb-tab .tab-hide {
+	display: none;
+}
+.field-set-right > input, .field-set-right > select, .field-set-right > textarea {
+    width: 320px;
+    min-height: 26px;
+    max-width: 100%;
+	font-size: 12px;
+}
+.field-set-right > textarea {
+	height: 70px;
+}
+
+/* CEA Option Form Styles */
+form#zwb-form-wrapper {
+    position: relative;
+}
+input.zwb-submit {
+    position: absolute;
+    top: 20px;
+    right: 18%;
+}
+
+/*Admin Meta Drag and Drop Field CSS*/
+.field-set-right .meta-items {
+    background-color: #e1e1e1;
+    padding: 30px 15px;
+}
+.field-set-right .meta-items.meta-items-enabled {
+    background: #32373c none repeat scroll 0 0;
+}
+.field-set-right .meta-items li {
+   background-color: #0073aa;
+    color: #fff;
+    cursor: all-scroll;
+    display: inline-block;
+    margin-left: 5px;
+    padding: 8px 15px;
+}
+.field-set-right .meta-field-table tbody tr td:first-child{
+	width:25%;
+}
+.field-set-right .meta-items, .field-set-right .meta-items li{
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.field-set-right .droppable-active, .field-set-right .meta-items.meta-items-enabled.droppable-active {
+	border:dashed 2px #0073AA;
+	background-color:#00aef0;
+}
+.field-set-right .droppable-active li{
+	background-color:#0b9bd2;
+	border:solid #48b3db 1px;
+	color:#fff;
+}
+
+img.zwb-uploaded-image {
+    max-width: 200px;
+    display: block;
+    margin-bottom: 20px;
+}
+button.zwb-remove-image-button {
+    margin-left: 10px;
+}
+
+/* Admin Page Styles */
+.zwb-admin-wrap {
+    margin-right: 15px;
+}
+.zwb-admin-wrap .postbox-container {
+    width: 56.5%;
+}
+.zwb-admin-wrap .notice {
+    border-left-color: #0073aa;
+    margin: 0;
+}
+.zwb-head {
+    margin-top: 30px;
+	padding-bottom: 20px;
+}
+.zwb-content {
+	padding-top: 10px;
+}
+.zwb-section-fields .field-set {
+    display: block;
+	font-size: 12px;
+	margin-bottom: 20px;
+}
+.zwb-section-fields .field-set h5 {
+	margin: 0;
+	font-size: 12px;
+}
+.zwb-section-fields .field-set > div {
+    display: inline-block;
+    vertical-align: top;
+}
+.zwb-section-fields .field-set > div.field-set-left {
+    width: 22%;
+}
+.zwb-section-fields .field-set > div.field-set-right {
+    width: 73%;
+}
+.zwb-section-fields .field-set {
+    font-size: 12px;
+}
+.zwb-section-fields .field-set > div.field-set-right p {
+    margin: 0;
+    font-size: 12px;
+}
+.zwb-admin-wrap .zwb-section-fields .switch {
+	height: 18px;
+	width: 34px;
+}
+.zwb-admin-wrap .zwb-section-fields .switch .slider.round {
+    border-radius: 18px;
+}
+.zwb-admin-wrap .zwb-section-fields .switch .slider:before {
+	height: 12px;
+    width: 12px;
+    bottom: 3px;
+	left: 4px;
+}
+.zwb-admin-wrap .zwb-section-fields .switch input:checked + .slider:before {
+    -webkit-transform: translateX(8px);
+    -ms-transform: translateX(8px);
+    transform: translateX(8px);
+	left: 10px;
+}
+.zwb-section-fields .field-set:first-child {
+    margin-top: 30px;
+}
+.zwb-head h1 {
+    font-weight: 400;
+}
+.postbox-container.zozo-right-sidebar {
+    float: right;
+    width: 42%;
+}
+.zwb-inner-content ul li {
+    position: relative;
+}
+.zwb-inner-content ul.arrow-list li:before {
+    content: "\f345";
+    font-family: dashicons;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 767px) {
+	.postbox-container.zozo-right-sidebar {
+		float: none;
+		width: 100%;
+	}
+	.zwb-admin-wrap .postbox-container {
+		width: 100%;
+	}
+}
+ul.icon-list li span {
+    font-size: 30px;
+    color: #0073aa;
+    margin-right: 18px;
+    height: 26px;
+    margin-bottom: 10px;
+    width: 26px;
+    position: relative;
+}
+ul.icon-list li a {
+    color: #0073aa;
+    text-decoration: none;
+}
