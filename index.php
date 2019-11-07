@@ -27,6 +27,8 @@ if( ! class_exists('zozowoobase_major_settings') ) {
 		private static $_instance = null;
 		
 		public static $plugin_version = null;
+
+		public static $pro_version = 1.1;
 		
 		public function __construct() {
 			

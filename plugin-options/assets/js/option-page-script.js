@@ -96,6 +96,36 @@
 				return false;
 			});
 		}
+
+		if( $("#zozo_woo_addons_nonce").length ){
+
+			$(".wp-admin .zozo-woo-feature-details > a.addon-process-trigger").on( "click", function() {
+			
+				var addon_key = $(this).attr("data-key");
+				var addon_stat = $(this).attr("data-stat");
+				var cur_nonce = $("#zozo_woo_addons_nonce").val();
+
+				$.ajax({
+					type: 'post',
+					url: ajaxurl,
+					data: { 
+						action: "zozo_woo_addons_update", 
+						nonce: cur_nonce,
+						key: addon_key,
+						stat: addon_stat
+					},
+					success: function(data){
+						window.location.reload();			
+					},
+					error: function(xhr, status, error) {
+						window.location.reload();	
+					}
+				});
+
+				return false;
+
+			});
+		}
 		
 	});
 	

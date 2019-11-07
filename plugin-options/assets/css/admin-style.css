@@ -2,6 +2,26 @@
  * Zozo Woo Addon Admin Styles
  */
 
+@-moz-keyframes zozospin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes zozospin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes zozospin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+.box-shadow-3 {
+  -webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1), 0 0px 5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1), 0 0px 5px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1), 0 0px 5px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1), 0 0px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1), 0 0px 5px rgba(0, 0, 0, 0.1);
+}
 
 /* The switch - the box around the slider */
 .zwb-switch {
@@ -330,4 +350,52 @@ ul.icon-list li span {
 ul.icon-list li a {
     color: #0073aa;
     text-decoration: none;
+}
+
+/*Feature Section Styles*/
+.zozo-woo-features-wrap {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+.zozo-woo-features-inner {
+    float: left;
+    width: 33.333%;
+}
+.zozo-woo-features-img img {
+    max-width: 100%;
+    width: 84px;
+}
+.zozo-woo-feature-details {
+    padding: 2px 8px 20px;
+    margin: 8px;
+}
+.zozo-woo-feature-details > * {
+    display: block;
+}
+
+.zozo-woo-features-content {
+    margin-top: 6px;
+    margin-bottom: 5px;
+}
+p.zozo-woo-update-req {
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+span.zozo-woo-pro-version {
+    background: red;
+    display: inline-block;
+    color: #fff;
+    padding: 0 7px;
+    border-radius: 4px;
+}
+p.zozo-woo-pro-version-title span {
+    font-weight: bold;
+}
+p.zozo-woo-pro-version-title {
+    display: inline-block;
+    margin: 0;
+    float: right;
+    font-weight: normal;
 }

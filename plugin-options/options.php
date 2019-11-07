@@ -83,7 +83,7 @@ final class zozo_woo_base_plugin_options {
 			'zozo-pro-features',
 			array( $this, 'zozo_woo_features_page_output' )
 		);
-		
+	
 		//Change first submenu name
 		global $submenu;
 		$submenu['zozo-woo-addon'][0][0] = esc_html__( 'General Settings', 'zozo-woo-addon' );
@@ -110,9 +110,24 @@ final class zozo_woo_base_plugin_options {
 						<div class="zwb-admin-section meta-box-sortables ui-sortable">
 							<div class="postbox">
 								<button type="button" class="handlediv"><span class="toggle-indicator" aria-hidden="true"></span></button>
-								<h2 class="hndle ui-sortable-handle"><span><?php esc_html_e( 'Feature Manager', 'zozo-woo-addon' ) ?></span></h2>
+								<h2 class="hndle ui-sortable-handle">
+									<span><?php esc_html_e( 'Feature Manager', 'zozo-woo-addon' ) ?></span>
+									<?php 
+										if( in_array( 'zozo-woo-pro/index.php', get_option( 'active_plugins' ) ) && is_admin() ){
+											if( ! function_exists('get_plugin_data') ){
+												require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+											}
+											$plugin_data = get_plugin_data( ABSPATH . 'wp-content/plugins/zozo-woo-pro/index.php' );
+											$pro_version = isset( $plugin_data['Version'] ) ? $plugin_data['Version'] : '1.0';
+											echo '<p class="zozo-woo-pro-version-title">'. esc_html( 'Running', 'zozo-woo-addon' ) .' <span class="zozo-woo-pro-version">v'. esc_html( $pro_version ) .'</span></p>';
+										}
+									?>
+								</h2>
 								<div class="inside">
-										
+								<?php
+									//Feature page content
+									require_once( ZOZO_WOO_BASE_DIR . 'plugin-options/inc/feature-page-content.php' );
+								?>
 								</div>
 							</div>
 						</div><!-- .zwb-admin-section -->
@@ -166,6 +181,6 @@ final class zozo_woo_base_plugin_options {
 		</div><!-- .zwb-admin-wrap -->
 		<?php
 	}
-}
 
+}
 zozo_woo_base_plugin_options::instance();
