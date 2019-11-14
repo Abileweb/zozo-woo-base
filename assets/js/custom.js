@@ -80,7 +80,7 @@
 		// Ajax add to cart
 		$( document ).on( 'click', "a.zozo-ajax-add-to-cart", function( event) {
 			
-			if( $("body.page-template-zozo-wishlist").length ){
+			if( $(this).parents(".zozo-wishlist-table").length ){
 				$(this).parents("tr").find("a.zozo-wishlist-remove").trigger("click");
 			}
 			

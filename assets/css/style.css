@@ -16,7 +16,6 @@ body a, body a:focus, a:hover, a:active {
     to {transform:rotate(0deg);}
 }
 
-/* Icon pack styles */
 .woo-thumb-wrap {
     position: relative;
 }
@@ -28,7 +27,7 @@ body a, body a:focus, a:hover, a:active {
     text-align: center;
     margin: 0 auto;
 }
-.zozo-woo-buttons-pack > a {
+.zozo-woo-buttons-pack > a, .zozo-wishlist-table .zozo-ajax-add-to-cart, .zozo-wishlist-table .zozo-wishlist-remove  {
     margin: 4px;
     position: relative;
     height: 30px;
@@ -38,7 +37,8 @@ body a, body a:focus, a:hover, a:active {
     text-align: center;
     line-height: 30px;
 }
-.zozo-woo-buttons-pack > a.loading:after, a.remove-cart-item.loading:after {
+.zozo-woo-buttons-pack > a.loading:after, a.remove-cart-item.loading:after, .zozo-wishlist-table .zozo-ajax-add-to-cart.loading:after,
+.zozo-wishlist-table .zozo-wishlist-remove.loading:after {
 	position: absolute;
     top: -15px;
     right: -5px;
@@ -57,7 +57,7 @@ body a, body a:focus, a:hover, a:active {
     font-size: 18px;
 }
 
-/* 02. Minicart Styles */
+/* 02. Minicart/Wishlist Styles */
 .mini-cart-dropdown, .mini-wishlist-dropdown {
     display: inline-block;
     position: relative;
@@ -85,6 +85,7 @@ ul.cart-dropdown-menu, ul.wishlist-dropdown-menu {
 ul.zozo-sticky-cart, ul.zozo-sticky-wishlist  {
     opacity: 1;
     visibility: visible;
+    width: 300px;
 }
 .mini-cart-dropdown:hover ul.cart-dropdown-menu, .mini-wishlist-dropdown:hover ul.wishlist-dropdown-menu {
     visibility: visible;
@@ -174,4 +175,23 @@ a.remove-cart-item.loading:after, a.remove-wishlist-item:after {
 }
 .zozo-sticky-cart-wrap {
     margin-top: -50px;
+}
+span.zozo-product-favoured {
+    position: absolute;
+    right: -10px;
+    z-index: 1;
+    top: -10px;
+    font-size: 10px;
+    padding: 4px;
+    background: red;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    line-height: 15px;
+    text-align: center;
+    color: #fff;
+}
+p.no-cart-items, p.no-wishlist-items {
+    text-align: center;
+    width: 100%;
 }

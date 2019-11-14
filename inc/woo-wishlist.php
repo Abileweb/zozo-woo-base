@@ -126,7 +126,13 @@ class Zozo_Woo_Favourite {
 						$thumb = '';
 						$title = get_the_title();
 						$price = '<span class="price">'. $product->get_price_html() .'</span>';
-						$add_to_cart = '<a href="' . get_permalink( $the_query->post->ID ) . '" data-product_id="'. esc_attr( $the_query->post->ID ) .'" data-product_sku="'. esc_attr( $the_query->post->sku ) .'" class="button add_to_cart_button ajax_add_to_cart zozo_ajax_add_to_cart" aria-label="'. esc_attr( get_the_title() ) .'" rel="nofollow">' . __( 'Add to Cart', 'zozo-woo-base' ) . '</a>';
+
+						$add_to_cart = '';
+						if( function_exists('zozo_woocommerce_loop_add_to_cart_link') ){
+							$add_to_cart = '<a href="' . get_permalink( $the_query->post->ID ) . '" class="zozo-ajax-add-to-cart" data-product_id="'. esc_attr( $the_query->post->ID ) .'" data-product_sku="'. esc_attr( $the_query->post->sku ) .'" ria-label="'. esc_attr( get_the_title() ) .'" rel="nofollow"><span class="ti-shopping-cart"></span></a>';
+						}else{
+							$add_to_cart = '<a href="' . get_permalink( $the_query->post->ID ) . '" data-product_id="'. esc_attr( $the_query->post->ID ) .'" data-product_sku="'. esc_attr( $the_query->post->sku ) .'" class="button add_to_cart_button ajax_add_to_cart zozo_ajax_add_to_cart" aria-label="'. esc_attr( get_the_title() ) .'" rel="nofollow">' . __( 'Add to Cart', 'zozo-woo-base' ) . '</a>';
+						}
 						if (has_post_thumbnail( $the_query->post->ID )) $thumb = get_the_post_thumbnail( $the_query->post->ID, 'thumbnail' );
 						else $thumb = '<img src="'. woocommerce_placeholder_img_src() .'" alt="Placeholder" width="300px" height="300px" />';
 						$output .= '<tr><td>'. $thumb .'</td><td>'. $title .'</td><td>'. $price .'</td>';
