@@ -252,12 +252,10 @@ button.zwb-remove-image-button {
 .zwb-admin-wrap .postbox-container {
     width: 56.5%;
 }
-.zwb-admin-wrap .notice {
+.zwb-admin-wrap .notice.zwb-notice {
     border-left-color: #0073aa;
-    margin: 0;
 }
 .zwb-head {
-    margin-top: 30px;
 	padding-bottom: 20px;
 }
 .zwb-content {

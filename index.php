@@ -2,7 +2,7 @@
 /*
 	Plugin Name: Zozo Woo Base
 	Plugin URI: https://zozothemes.com/
-	Description: Zozo Woo Base is a plugin which displays the email subscription form when a product is out of stock and send mail notofication when back in stock.
+	Description: Zozo Woo Base is a plugin which displays the email subscription form when a product is out of stock and send mail notofication when back in stock. [zozo_mini_cart], [zozo_mini_wishlist], [zozo_user_wishlist]
 	Version: 1.0
 	Author: zozothemes
 	Author URI: https://zozothemes.com/
@@ -28,7 +28,7 @@ if( ! class_exists('zozowoobase_major_settings') ) {
 		
 		public static $plugin_version = null;
 
-		public static $pro_version = 1.1;
+		public static $pro_version = 1.0;
 		
 		public function __construct() {
 			

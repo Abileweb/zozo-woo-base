@@ -54,6 +54,7 @@
 <?php wp_nonce_field( 'zozo_woo_pro_update*(!$sJ&*', 'zozo_woo_pro_update_nonce' ); ?>
 <?php if( $update_req ) : ?>
 	<p class="zozo-woo-update-req">Update required <span class="zozo-woo-pro-version">v1.1</span> <a href="#" class="button-primary zozo-woo-update-trigger">Update</a></p>
+	<span class="zozo-woo-pro-version-msg"></span>
 <?php endif; ?>
 
 <div class="zozo-woo-features-wrap">

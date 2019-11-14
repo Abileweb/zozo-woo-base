@@ -276,7 +276,7 @@ function zozo_mini_cart_func( $atts ) {
 	
 	$out = '<div class="mini-cart-dropdown">';
 		$out .= '<a href="'. esc_url( $cart_url ) .'" class="mini-cart-item"><i class="ti-shopping-cart"></i>';
-		$out .= '<span class="woo-icon-count zozo-cart-items-count">'. esc_html( $count ) .'</span>';	
+		$out .= '<span class="woo-icon-count zozo-cart-items-count">'. esc_html( $count ) .'</span></a>';	
 		$out .= '<ul class="cart-dropdown-menu">';
 			$out .= $cart_items;
 		$out .= '</ul>';

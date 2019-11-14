@@ -48,7 +48,10 @@ final class zozo_woo_base_plugin_options {
 		wp_enqueue_script( 'zozo-woo-admin-options', ZOZO_WOO_BASE_URL . 'plugin-options/assets/js/option-page-script.js', array( 'jquery' ), '1.0' );
 		//Localize Script
 		wp_localize_script( 'zozo-woo-admin-options', 'zwb_ajax_var', array(
-			'confirm_str' => esc_html( 'Are you sure to save?', 'zozo-woo-addon' )
+			'confirm_str'	=> esc_html( 'Are you sure to save?', 'zozo-woo-addon' ),
+			'verify' 		=> esc_html( 'Verifying token..', 'zozo-woo-addon' ),
+			'update_success'=> esc_html( 'Pro version updated successfully..', 'zozo-woo-addon' ),
+			'update_pbm'	=> esc_html( 'Unknown problem occurs while updating.. Try again.', 'zozo-woo-addon' )
 		));
 	}
 	
@@ -58,7 +61,9 @@ final class zozo_woo_base_plugin_options {
 	
 	public function zozo_woo_addon_framework(){
 		require_once( ZOZO_WOO_BASE_DIR . 'plugin-options/framework.php' );
-		zozo_woo_base_framework_options::$opt_name = 'zozo_woo_addon_options';
+		if( isset( $_GET['page'] ) && $_GET['page'] == 'zozo-woo-addon' ) {
+			zozo_woo_base_framework_options::$opt_name = 'zozo_woo_addon_options';
+		}		
 	}
 	
 	public function admin_menu_making(){
@@ -91,94 +96,98 @@ final class zozo_woo_base_plugin_options {
 
 	public function zozo_woo_features_page_output() { 
 		?>
-		<div class="zwb-admin-wrap">
-		
-			<div class="zwb-head">
-				<h1><?php esc_html_e( 'Feature Manager', 'zozo-woo-addon' ); ?></h1>
-				<div class="notice">
-					<p class="pa-title-sub"><?php esc_html_e( 'Thank you for using Zozo Woo Addon Plugin. User can find doctors, clinics &#38; other healthcare providers in any place. Search by specialties, localities and more. This plugin has been developed by', 'zozo-woo-addon' ); ?> <strong><?php esc_html_e( 'zozothemes', 'zozo-woo-addon' ); ?></strong></p>
-				</div>
-			</div><!-- .zwb-head -->			
+		<div class="wrap">
+			<div class="zwb-admin-wrap">
 			
-			<div class="zwb-content">
-				<div class="metabox-holder">
-					<?php
-						//Admin Page Content
-						require_once( ZOZO_WOO_BASE_DIR . 'plugin-options/inc/admin-page-content.php' );
-					?>
-					<div class="postbox-container">
-						<div class="zwb-admin-section meta-box-sortables ui-sortable">
-							<div class="postbox">
-								<button type="button" class="handlediv"><span class="toggle-indicator" aria-hidden="true"></span></button>
-								<h2 class="hndle ui-sortable-handle">
-									<span><?php esc_html_e( 'Feature Manager', 'zozo-woo-addon' ) ?></span>
-									<?php 
-										if( in_array( 'zozo-woo-pro/index.php', get_option( 'active_plugins' ) ) && is_admin() ){
-											if( ! function_exists('get_plugin_data') ){
-												require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+				<div class="zwb-head">
+					<h1><?php esc_html_e( 'Feature Manager', 'zozo-woo-addon' ); ?></h1>
+					<div class="notice zwb-notice">
+						<p class="pa-title-sub"><?php esc_html_e( 'Thank you for using Zozo Woo Addon Plugin. User can find doctors, clinics &#38; other healthcare providers in any place. Search by specialties, localities and more. This plugin has been developed by', 'zozo-woo-addon' ); ?> <strong><?php esc_html_e( 'zozothemes', 'zozo-woo-addon' ); ?></strong></p>
+					</div>
+				</div><!-- .zwb-head -->			
+				
+				<div class="zwb-content">
+					<div class="metabox-holder">
+						<?php
+							//Admin Page Content
+							require_once( ZOZO_WOO_BASE_DIR . 'plugin-options/inc/admin-page-content.php' );
+						?>
+						<div class="postbox-container">
+							<div class="zwb-admin-section meta-box-sortables ui-sortable">
+								<div class="postbox">
+									<button type="button" class="handlediv"><span class="toggle-indicator" aria-hidden="true"></span></button>
+									<h2 class="hndle ui-sortable-handle">
+										<span><?php esc_html_e( 'Feature Manager', 'zozo-woo-addon' ) ?></span>
+										<?php 
+											if( in_array( 'zozo-woo-pro/index.php', get_option( 'active_plugins' ) ) && is_admin() ){
+												if( ! function_exists('get_plugin_data') ){
+													require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+												}
+												$plugin_data = get_plugin_data( ABSPATH . 'wp-content/plugins/zozo-woo-pro/index.php' );
+												$pro_version = isset( $plugin_data['Version'] ) ? $plugin_data['Version'] : '1.0';
+												echo '<p class="zozo-woo-pro-version-title">'. esc_html( 'Running', 'zozo-woo-addon' ) .' <span class="zozo-woo-pro-version">v'. esc_html( $pro_version ) .'</span></p>';
 											}
-											$plugin_data = get_plugin_data( ABSPATH . 'wp-content/plugins/zozo-woo-pro/index.php' );
-											$pro_version = isset( $plugin_data['Version'] ) ? $plugin_data['Version'] : '1.0';
-											echo '<p class="zozo-woo-pro-version-title">'. esc_html( 'Running', 'zozo-woo-addon' ) .' <span class="zozo-woo-pro-version">v'. esc_html( $pro_version ) .'</span></p>';
-										}
+										?>
+									</h2>
+									<div class="inside">
+									<?php
+										//Feature page content
+										require_once( ZOZO_WOO_BASE_DIR . 'plugin-options/inc/feature-page-content.php' );
 									?>
-								</h2>
-								<div class="inside">
-								<?php
-									//Feature page content
-									require_once( ZOZO_WOO_BASE_DIR . 'plugin-options/inc/feature-page-content.php' );
-								?>
+									</div>
 								</div>
-							</div>
-						</div><!-- .zwb-admin-section -->
-					</div><!-- .postbox-container -->
-				</div><!-- .metabox-holder -->
-			</div><!-- .zwb-content -->
-			
-		</div><!-- .zwb-admin-wrap -->
+							</div><!-- .zwb-admin-section -->
+						</div><!-- .postbox-container -->
+					</div><!-- .metabox-holder -->
+				</div><!-- .zwb-content -->
+				
+			</div><!-- .zwb-admin-wrap -->
+		</div><!-- .wrap -->
 		<?php
 	}
 	
 	public function zozo_woo_admin_page_output(){
 		?>
-		<div class="zwb-admin-wrap">
-		
-			<div class="zwb-head">
-				<h1><?php esc_html_e( 'Zozo Woo Addon', 'zozo-woo-addon' ); ?></h1>
-				<div class="notice">
-					<p class="pa-title-sub"><?php esc_html_e( 'Thank you for using Zozo Woo Addon Plugin. User can find doctors, clinics &#38; other healthcare providers in any place. Search by specialties, localities and more. This plugin has been developed by', 'zozo-woo-addon' ); ?> <strong><?php esc_html_e( 'zozothemes', 'zozo-woo-addon' ); ?></strong></p>
-				</div>
-			</div><!-- .zwb-head -->			
+		<div class="wrap">
+			<div class="zwb-admin-wrap">
 			
-			<div class="zwb-content">
-				<div class="metabox-holder">
-					<?php
-						//Admin Page Content
-						require_once( ZOZO_WOO_BASE_DIR . 'plugin-options/inc/admin-page-content.php' );
-					?>
-					<div class="postbox-container">
-						<form method="post" action="#" enctype="multipart/form-data" class="zwb-form-wrapper">
-							<?php 
-			
-								if ( isset( $_POST['save_zozo_woo_options'] ) && wp_verify_nonce( $_POST['save_zozo_woo_options'], 'zozo_woo_base_framework_options' ) ) {
-									update_option( 'zozo_woo_addon_options', $_POST['zozo_woo_addon_options'] );
-								}
-								
-								//Get updated theme option
-								zozo_woo_base_framework_options::$zozo_woo_addon_options = get_option('zozo_woo_addon_options');
-								
-								//Plugin config
-								require_once( ZOZO_WOO_BASE_DIR . 'plugin-options/config.php' );
-								
-							?>
-							<?php wp_nonce_field( 'zozo_woo_base_framework_options', 'save_zozo_woo_options' ); ?>
-							<input name="submit" type="submit" class="button-primary" value="<?php esc_html_e( 'Update Options', 'zozo-woo-addon' ); ?>">
-						</form>
-					</div><!-- .postbox-container -->
-				</div><!-- .metabox-holder -->
-			</div><!-- .zwb-content -->
-			
-		</div><!-- .zwb-admin-wrap -->
+				<div class="zwb-head">
+					<h1><?php esc_html_e( 'Zozo Woo Addon', 'zozo-woo-addon' ); ?></h1>
+					<div class="notice">
+						<p class="pa-title-sub"><?php esc_html_e( 'Thank you for using Zozo Woo Addon Plugin. User can find doctors, clinics &#38; other healthcare providers in any place. Search by specialties, localities and more. This plugin has been developed by', 'zozo-woo-addon' ); ?> <strong><?php esc_html_e( 'zozothemes', 'zozo-woo-addon' ); ?></strong></p>
+					</div>
+				</div><!-- .zwb-head -->			
+				
+				<div class="zwb-content">
+					<div class="metabox-holder">
+						<?php
+							//Admin Page Content
+							require_once( ZOZO_WOO_BASE_DIR . 'plugin-options/inc/admin-page-content.php' );
+						?>
+						<div class="postbox-container">
+							<form method="post" action="#" enctype="multipart/form-data" class="zwb-form-wrapper">
+								<?php 
+				
+									if ( isset( $_POST['save_zozo_woo_options'] ) && wp_verify_nonce( $_POST['save_zozo_woo_options'], 'zozo_woo_base_framework_options' ) ) {
+										update_option( 'zozo_woo_addon_options', $_POST['zozo_woo_addon_options'] );
+									}
+									
+									//Get updated theme option
+									zozo_woo_base_framework_options::$zozo_woo_addon_options = get_option('zozo_woo_addon_options');
+									
+									//Plugin config
+									require_once( ZOZO_WOO_BASE_DIR . 'plugin-options/config.php' );
+									
+								?>
+								<?php wp_nonce_field( 'zozo_woo_base_framework_options', 'save_zozo_woo_options' ); ?>
+								<input name="submit" type="submit" class="button-primary" value="<?php esc_html_e( 'Update Options', 'zozo-woo-addon' ); ?>">
+							</form>
+						</div><!-- .postbox-container -->
+					</div><!-- .metabox-holder -->
+				</div><!-- .zwb-content -->
+				
+			</div><!-- .zwb-admin-wrap -->
+		</div><!-- .wrap -->
 		<?php
 	}
 
