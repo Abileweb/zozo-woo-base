@@ -6,6 +6,8 @@ class zozo_woo_base_framework_options {
 	public static $zozo_woo_addon_options = array();
 	
 	private static $pages;
+
+	private static $sidebars;
 	
 	public static function zozo_woo_get_select( $get ) {
 		$get_res = '';
@@ -20,6 +22,17 @@ class zozo_woo_base_framework_options {
 					self::$pages = $page_arr;
 				}
 				$get_res = self::$pages;
+			break;
+			case "sidebars":
+				if( empty( self::$sidebars ) ){
+					global $wp_registered_sidebars;
+					$sidebars_arr = array();
+					foreach($wp_registered_sidebars as $sidebar_id => $sidebar) {
+						$sidebars_arr[$sidebar_id] = $sidebar['name'];
+					}
+					self::$sidebars = $sidebars_arr;
+				}
+				$get_res = self::$sidebars;
 			break;
 		}
 		return $get_res;			
@@ -146,9 +159,17 @@ class zozo_woo_base_framework_options {
 		
 				break;
 			}
+
+			$required_attr = '';
+			if( isset( $field['required'] ) ){
+				$required = $field['required'];
+				$required_attr .= isset( $required[0] ) ? ' data-required="'. $required[0] .'"' : '';
+				$required_attr .= isset( $required[1] ) ? ' data-required-condition="'. $required[1] .'"' : '';
+				$required_attr .= isset( $required[2] ) ? ' data-required-value="'. $required[2] .'"' : '';
+			}
 			
 			$field_out .= '
-			<div class="field-set">
+			<div class="field-set"'. $required_attr .' id="'. esc_attr( $field['id'] ) .'">
 				<div class="field-set-left">
 					<h5>'. esc_html( $field['title'] ) .'</h5>
 				</div><!-- .field-set-left -->

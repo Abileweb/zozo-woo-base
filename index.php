@@ -11,8 +11,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( !in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ))  ) ){
-	return;
+if( is_multisite() ){
+	if ( ! function_exists( 'is_plugin_active_for_network' ) ) {
+		require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
+	}
+	if ( !is_plugin_active( 'woocommerce/woocommerce.php' ) && !is_plugin_active_for_network( 'woocommerce/woocommerce.php' ) ) {
+		return;
+	}
+}else{
+	require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
+	if( !is_plugin_active( 'woocommerce/woocommerce.php' ) ){
+		return;
+	}
 }
 
 define( 'ZOZO_WOO_BASE_DIR', plugin_dir_path( __FILE__ ) );
@@ -28,7 +38,7 @@ if( ! class_exists('zozowoobase_major_settings') ) {
 		
 		public static $plugin_version = null;
 
-		public static $pro_version = 1.0;
+		public static $pro_version = 1.1;
 		
 		public function __construct() {
 			
@@ -39,7 +49,7 @@ if( ! class_exists('zozowoobase_major_settings') ) {
 			add_filter( 'woocommerce_locate_template', [ $this, 'zozowoobase_woo_addon_plugin_template' ], 1, 3 );
 			
 			//Woocommerce theme support
-			add_action( 'after_setup_theme', [ $this, 'zozo_woocommerce_support' ] );
+			//add_action( 'after_setup_theme', [ $this, 'zozo_woocommerce_support' ] );
 			
 			//Woo base scripts/styles
 			add_action( 'wp_enqueue_scripts', [ $this, 'zozowoobase_scripts' ] );
@@ -119,10 +129,9 @@ if( ! class_exists('zozowoobase_major_settings') ) {
 		
 		public static function zozowoobase_get( $field ){ 
 			$default_options = array(
-				'woo-shop-pagetitle'		=> false,
 				'woo-shop-ppp'				=> 9,
 				'woo-shop-columns'			=> 3,
-				'woo-shop-archive-columns'	=> 3,
+				'woo-archive-columns'		=> 3,
 				'sticky-minicart-opt'		=> 0,
 				'wishlist-page-id'			=> '',
 				'sticky-wishlist-opt'		=> 0,

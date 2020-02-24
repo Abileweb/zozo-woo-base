@@ -126,7 +126,49 @@
 
 			});
 		}
+
+		/* Custom Reqiured Field */
+		if( $( ".zwb-section-fields .field-set[data-required]" ).length ){
+			$( ".zwb-section-fields .field-set[data-required]" ).hide();
+			$( ".zwb-section-fields .field-set[data-required]" ).each(function( index ) {
+				var hidden_ele = this;
+				var req_field = '#'+ $(this).attr('data-required');
+				var req_val = $(this).attr('data-required-value');
+				var req_condition = $(this).attr('data-required-condition');
+				var req_selected = $( req_field ).find(":selected").val();
+				if( req_condition == '!=' ){
+					$( req_field ).change(function() {
+						req_selected = $( this ).find(":selected").val();
+						if( req_selected != req_val ){
+							$(hidden_ele).show();
+						}else{
+							if( $( hidden_ele ).find('select').length ){
+								var t_val = $(hidden_ele).find('select').attr('id');
+								$(hidden_ele).find('select').prop('selectedIndex',0);
+								$(hidden_ele).parents('.zwb-section-fields').find('.field-set').filter('[data-req="'+ t_val +'"]').hide();
+							}
+							$(hidden_ele).hide();
+						}
+					});
+				}else{
+					$( req_field ).change(function() {
+						req_selected = $( this ).find(":selected").val();
+						if( req_selected == req_val ){
+							$(hidden_ele).show();
+						}else{
+							if( $( hidden_ele ).find('select').length ){
+								var t_val = $(hidden_ele).find('select').attr('id');
+								$(hidden_ele).find('select').prop('selectedIndex',0);
+								$(hidden_ele).parents('.zwb-section-fields').find('.field-set').filter('[data-req="'+ t_val +'"]').hide();
+							}
+							$(hidden_ele).hide();
+						}
+					});
+				}
+				
+			});
+		}
 		
-	});
+	});	
 	
 })( jQuery );

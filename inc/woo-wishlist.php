@@ -1,7 +1,7 @@
 <?php 
 
-add_action( 'woocommerce_before_shop_loop_item_title', 'zozowishlist_woocommerce_before_shop_loop_item_title_end', 10 );
-function zozowishlist_woocommerce_before_shop_loop_item_title_end(){
+add_action( 'zozowoobase_woocommerce_thumb_buttons_pack', 'zozobase_woocommerce_wishlist_button', 10 );
+function zozobase_woocommerce_wishlist_button(){
 	global $product;
 	$id = $product->get_id();	
 	$fav_stat = Zozo_Woo_Favourite::zozoFavouriteIPVerify( $id, true );
@@ -9,8 +9,8 @@ function zozowishlist_woocommerce_before_shop_loop_item_title_end(){
 	echo '<a href="#" class="zozo-woo-favourite-trigger'. esc_attr( $fav_class ) .'" data-product-id="'. esc_attr( $id ) .'"><span class="ti-heart"></span></a>';
 }
 
-add_action( 'woocommerce_before_shop_loop_item', 'zozo_woocommerce_template_loop_product_link_open', 10 );
-function zozo_woocommerce_template_loop_product_link_open(){
+add_action( 'woocommerce_before_shop_loop_item', 'zozobase_woocommerce_template_loop_product_link_open', 10 );
+function zozobase_woocommerce_template_loop_product_link_open(){
 	global $product;
 	$id = $product->get_id();	
 	$fav_stat = Zozo_Woo_Favourite::zozoFavouriteIPVerify( $id, true );
