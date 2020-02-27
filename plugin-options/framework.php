@@ -158,6 +158,10 @@ class zozo_woo_base_framework_options {
 					$field_element .= '<p class="zwb-field-desc">'. $description .'</p>';
 		
 				break;
+
+				case "label":
+					$field_element .= '<p class="zwb-field-desc">'. $description .'</p>';
+				break;
 			}
 
 			$required_attr = '';
